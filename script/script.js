@@ -14,16 +14,18 @@ function updateContent() {
   updateCityTZ("#lisbon", "Europe/Lisbon");
 }
 
-//
-
 function changeCity(event) {
+  let citySelected = event.target.value;
+  if (citySelected === "current") {
+    citySelected = moment.tz.guess();
+  }
   if (event.target.value.length > 0) {
     let date = moment().tz(`${event.target.value}`).format("Do, MMMM");
     let time = moment()
       .tz(`${event.target.value}`)
       .format("h[h]mm:ss [<span>] A[</span>]");
 
-    let cityName = event.target.value.replace("_", " ").split("/")[1];
+    let cityName = citySelected.replace("_", " ").split("/")[1];
 
     let cityTimezone = document.querySelector("#data");
     cityTimezone.innerHTML = `
@@ -41,4 +43,3 @@ let selectListElement = document.querySelector("#select-city");
 selectListElement.addEventListener("change", changeCity);
 
 updateContent();
-setInterval(updateContent, 1000);
