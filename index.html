@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>World Clock</title>
     <link rel="stylesheet" href="style/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://momentjs.com/downloads/moment-timezone-with-data-1970-2030.min.js"></script>
   </head>
@@ -12,7 +18,7 @@
     <div class="container">
       <h1>World Clock</h1>
 
-      <select name="" id="">
+      <select name="" id="select-city">
         <option value="">Select a city</option>
         <option value="">London</option>
         <option value="">New York</option>
@@ -24,25 +30,38 @@
       </select>
 
       <div class="cities">
-        <h2>Los Angeles</h2>
-        <div class="date">15th August 10:00</div>
+        <div>
+          <h2>Los Angeles</h2>
+          <div class="date">15th August</div>
+        </div>
+        <div class="time">10h00:00<span>AM</span></div>
       </div>
       <div class="cities">
-        <h2>Los Angeles</h2>
-        <div class="date">15th August 10:00</div>
+        <div>
+          <h2>Los Angeles</h2>
+          <div class="date">15th August</div>
+        </div>
+        <div class="time">10h00:00<span>AM</span></div>
       </div>
       <div class="cities">
-        <h2>Los Angeles</h2>
-        <div class="date">15th August 10:00</div>
+        <div>
+          <h2>Los Angeles</h2>
+          <div class="date">15th August</div>
+        </div>
+        <div class="time">10h00:00<span>AM</span></div>
       </div>
 
       <footer>
         This project was coded by
-        <a href="https://www.linkedin.com/in/gabriela-agostinho-378b67207/"
+        <a
+          href="https://www.linkedin.com/in/gabriela-agostinho-378b67207/"
+          target="_blank"
           >Gabriela Agostinho</a
         >
         and it is open-sourced on
-        <a href="https://github.com/gabz2407/world-clock">Git Hub</a>.
+        <a href="https://github.com/gabz2407/world-clock" target="_blank"
+          >Git Hub</a
+        >.
       </footer>
     </div>
   </body>

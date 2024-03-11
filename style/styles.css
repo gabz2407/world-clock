@@ -1,0 +1,63 @@
+body {
+  background-color: rgba(167, 167, 167, 0.378);
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  width: 600px;
+  margin: 60px auto;
+  border-radius: 9px;
+  padding: 25px;
+  box-shadow: 10px 10px 10px rgba(185, 187, 189, 0.364);
+  background-color: white;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+#select-city {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.cities {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(122, 124, 126, 0.443);
+  padding-bottom: 23px;
+}
+
+.date {
+  color: rgb(142, 144, 145);
+}
+
+.time {
+  position: relative;
+  top: 10px;
+  font-size: 40px;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.time span {
+  font-size: 15px;
+}
+
+footer {
+  font-size: 12px;
+  text-align: center;
+  padding-top: 28px;
+  color: rgb(142, 144, 145);
+}
+
+footer a {
+  text-decoration: none;
+  color: rgb(88, 29, 29);
+}
