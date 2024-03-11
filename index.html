@@ -20,14 +20,22 @@
 
       <select name="" id="select-city">
         <option value="">Select a city</option>
-        <option value="">London</option>
-        <option value="">New York</option>
-        <option value="">Paris</option>
-        <option value="">Lisbon</option>
-        <option value="">Madrid</option>
-        <option value="">Berlin</option>
-        <option value="">Oslo</option>
+        <option value="Europe/London">London</option>
+        <option value="America/New_York">New York</option>
+        <option value="Europe/Paris">Paris</option>
+        <option value="Europe/Lisbon">Lisbon</option>
+        <option value="Europe/Madrid">Madrid</option>
+        <option value="Europe/Berlin">Berlin</option>
+        <option value="Europe/Oslo">Oslo</option>
       </select>
+
+      <div id="selected-city" class="cities">
+        <div>
+          <h2 class="city-selected"></h2>
+          <div class="date-selected date"></div>
+        </div>
+        <div class="time-selected time"></div>
+      </div>
 
       <div class="cities" id="los-angeles">
         <div>

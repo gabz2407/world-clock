@@ -1,25 +1,39 @@
-function updateContent() {
-  let laElement = document.querySelector("#los-angeles");
-  let laDateElement = laElement.querySelector(".date");
-  let laTimeElement = laElement.querySelector(".time");
-  laDateElement.innerHTML = moment()
-    .tz("America/Los_Angeles")
-    .format("MMMM, Do");
+function updateCityTZ(selector, timezone) {
+  let element = document.querySelector(selector);
+  let dateElement = element.querySelector(".date");
+  let timeElement = element.querySelector(".time");
+  dateElement.innerHTML = moment().tz(timezone).format("MMMM, Do");
 
-  let laHours = moment().tz("America/Los_Angeles").format("h[h]mm:ss");
-  let laAm = moment().tz("America/Los_Angeles").format("A");
-  laTimeElement.innerHTML = `${laHours} <span>${laAm}</span>`;
-
-  //paris
-
-  let barElement = document.querySelector("#barcelona");
-  let barDateElement = barElement.querySelector(".date");
-  let barTimeElement = barElement.querySelector(".time");
-  barDateElement.innerHTML = moment().tz("Europe/Madrid").format("MMMM, Do");
-
-  let bHours = moment().tz("Europe/Madrid").format("h[h]mm:ss");
-  let bAm = moment().tz("Europe/Madrid").format("A");
-  barTimeElement.innerHTML = `${bHours} <span>${bAm}</span>`;
+  let hours = moment().tz(timezone).format("h[h]mm:ss");
+  let am = moment().tz(timezone).format("A");
+  timeElement.innerHTML = `${hours} <span>${am}</span>`;
 }
+
+function updateContent() {
+  updateCityTZ("#los-angeles", "America/Los_Angeles");
+  updateCityTZ("#barcelona", "Europe/Madrid");
+}
+
 updateContent();
 setInterval(updateContent, 1000);
+
+//
+
+function changeCity(event) {
+  if (event.target.value.length > 0) {
+    let selectedCityElement = document.querySelector("#selected-city");
+    let selectedCity = selectedCityElement.querySelector(".city-selected");
+    let selectedDate = selectedCityElement.querySelector(".date-selected");
+    let selectedTime = selectedCityElement.querySelector(".time-selected");
+    selectedCity.innerHTML = event.target.value;
+    selectedDate.innerHTML = moment()
+      .tz(`${event.target.value}`)
+      .format("Do, MMMM");
+    selectedTime.innerHTML = moment()
+      .tz(`${event.target.value}`)
+      .format("h[h]mm:ss[<span>]A[</span>]");
+  }
+}
+
+let selectListElement = document.querySelector("#select-city");
+selectListElement.addEventListener("change", changeCity);
