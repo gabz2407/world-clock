@@ -10,30 +10,35 @@ function updateCityTZ(selector, timezone) {
 }
 
 function updateContent() {
-  updateCityTZ("#los-angeles", "America/Los_Angeles");
-  updateCityTZ("#barcelona", "Europe/Madrid");
+  updateCityTZ("#london", "Europe/London");
+  updateCityTZ("#lisbon", "Europe/Lisbon");
 }
-
-updateContent();
-setInterval(updateContent, 1000);
 
 //
 
 function changeCity(event) {
   if (event.target.value.length > 0) {
-    let selectedCityElement = document.querySelector("#selected-city");
-    let selectedCity = selectedCityElement.querySelector(".city-selected");
-    let selectedDate = selectedCityElement.querySelector(".date-selected");
-    let selectedTime = selectedCityElement.querySelector(".time-selected");
-    selectedCity.innerHTML = event.target.value;
-    selectedDate.innerHTML = moment()
+    let date = moment().tz(`${event.target.value}`).format("Do, MMMM");
+    let time = moment()
       .tz(`${event.target.value}`)
-      .format("Do, MMMM");
-    selectedTime.innerHTML = moment()
-      .tz(`${event.target.value}`)
-      .format("h[h]mm:ss[<span>]A[</span>]");
+      .format("h[h]mm:ss [<span>] A[</span>]");
+
+    let cityName = event.target.value.replace("_", " ").split("/")[1];
+
+    let cityTimezone = document.querySelector("#data");
+    cityTimezone.innerHTML = `
+      <div class="cities">
+        <div>
+          <h2 class="city-selected">${cityName}</h2>
+          <div class="date">${date}</div>
+        </div>
+        <div class="time">${time}</div>
+      </div>`;
   }
 }
 
 let selectListElement = document.querySelector("#select-city");
 selectListElement.addEventListener("change", changeCity);
+
+updateContent();
+setInterval(updateContent, 1000);
