@@ -3,7 +3,7 @@ function updateCityTZ(selector, timezone) {
   if (element) {
     let dateElement = element.querySelector(".date");
     let timeElement = element.querySelector(".time");
-    dateElement.innerHTML = moment().tz(timezone).format("MMMM, Do");
+    dateElement.innerHTML = moment().tz(timezone).format("Do, MMMM");
 
     let hours = moment().tz(timezone).format("h[h]mm:ss");
     let am = moment().tz(timezone).format("A");
